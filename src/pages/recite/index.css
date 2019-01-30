@@ -1,11 +1,3 @@
-.wrapper {
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-}
-
 .top-view {
 	flex: 1;
 	justify-content: center;
@@ -49,7 +41,7 @@
 	justify-content: center;
 }
 
-.bottom-view button {
+.recite-button {
 	margin-top: 40cpx;
 }
 

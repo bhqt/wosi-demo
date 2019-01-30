@@ -18,7 +18,11 @@ export default {
 	 */
 	async [actionTypes.GET_USER_INFO]({ commit, state }) {
 		const date = dayjs().format("YY-MM-DD");
-		let userInfo = await cml.getStorage("userInfo");
+		let userInfo;
+		try {
+			userInfo = await cml.getStorage("userInfo");
+		} catch (error) {}
+
 		(!userInfo || date !== userInfo.date) &&
 			((userInfo = await cml.get({
 				url: "/api/user/info"
@@ -30,7 +34,10 @@ export default {
 	 * 获取词库信息
 	 */
 	async [actionTypes.GET_BOOK_INFO]({ commit }) {
-		let bookInfo = await cml.getStorage("bookInfo");
+		let bookInfo;
+		try {
+			bookInfo = await cml.getStorage("bookInfo");
+		} catch (error) {}
 		!bookInfo &&
 			((bookInfo = await cml.get({
 				url: "/api/book/info"
@@ -43,7 +50,10 @@ export default {
 	 * todo success后 清空缓存的情况
 	 */
 	async [actionTypes.GET_TODAY_INFO]({ commit, state }) {
-		let todayInfo = await cml.getStorage("todayInfo");
+		let todayInfo;
+		try {
+			todayInfo = await cml.getStorage("todayInfo");
+		} catch (error) {}
 		!!todayInfo
 			? commit(mutationTypes.UPDATE_TODAYINFO, todayInfo)
 			: cml.setStorage("todayInfo", state.todayInfo);
@@ -101,7 +111,10 @@ export default {
 	 * 获取复习单词
 	 */
 	async [actionTypes.GET_REVIEW]({ commit }) {
-		let review = (await cml.getStorage("review")) || [];
+		let review = [];
+		try {
+			review = await cml.getStorage("review");
+		} catch (error) {}
 		review.length === 0 &&
 			(review = await cml.get({
 				url: "/api/review"
@@ -115,7 +128,10 @@ export default {
 	 * 初始化status和times
 	 */
 	async [actionTypes.GET_WORDS]({ commit, state, dispatch }) {
-		let words = await cml.getStorage("words");
+		let words;
+		try {
+			words = await cml.getStorage("words");
+		} catch (error) {}
 		if (!words) {
 			await dispatch(actionTypes.GET_REVIEW);
 			const data = await cml.get({
@@ -160,7 +176,10 @@ export default {
 	 * 每次随机从section中取一个单词出来
 	 */
 	async [actionTypes.GET_SECTION]({ commit, state }) {
-		let section = await cml.getStorage("section");
+		let section;
+		try {
+			section = await cml.getStorage("section");
+		} catch (error) {}
 		if (!section) {
 			section = state.words.splice(0, SECTION_LENGTH);
 			await cml.setStorage("section", section);

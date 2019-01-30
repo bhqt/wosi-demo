@@ -36,6 +36,7 @@
         btn-style="background:#5cb4bd;width:600cpx;"
         c-bind:onclick="handleEasy"
         c-if="{{showEasyButton}}"
+				class="recite-button"
       />  
       <view class="info_view" c-else>
         <text>这个单词背过</text>
@@ -44,11 +45,13 @@
         text="认识"
         btn-style="background:#5cb4bd;width:600cpx;"
         c-bind:onclick="handleCognizant"
+				class="recite-button"
       />  
       <button
         text="不认识"
         btn-style="background:#5cb4bd;width:600cpx;"
         c-bind:onclick="handleIncognizant"
+				class="recite-button"
       />  
     </view>
     <view class="progress-view">
@@ -94,7 +97,6 @@ class Index {
 		loading: false,
 		word: {},
 		sectionIndex: 0,
-		translation: "",
 		end: false,
 		iconStyle: {
 			width: "60cpx",
@@ -141,7 +143,7 @@ class Index {
 	methods = {
 		/**
 		 * 点击太简单按钮
-		 * 单词熟悉度规则index/index.js中有描述
+		 * 单词熟悉度规则index/index.cml中有描述
 		 */
 		async handleEasy() {
 			const englishWord = this.word.word;
@@ -158,7 +160,7 @@ class Index {
 		},
 		/**
 		 * 点击认识按钮
-		 * 单词熟悉度规则index/index.js中有描述
+		 * 单词熟悉度规则index/index.cml中有描述
 		 */
 		async handleCognizant() {
 			const { sectionIndex } = this;
@@ -205,7 +207,7 @@ class Index {
 		},
 		/**
 		 * 点击不认识按钮
-		 * 单词熟悉度规则index/index.js中有描述
+		 * 单词熟悉度规则index/index.cml中有描述
 		 */
 		async handleIncognizant() {
 			const { sectionIndex } = this;
