@@ -1,0 +1,100 @@
+{
+  "name": "words",
+  "version": "1.0.0",
+  "lockfileVersion": 1,
+  "requires": true,
+  "dependencies": {
+    "chameleon-api": {
+      "version": "0.1.1",
+      "resolved": "http://registry.npm.taobao.org/chameleon-api/download/chameleon-api-0.1.1.tgz",
+      "integrity": "sha1-5FRzHiCGm/mHlFp5R7op1jREMeU=",
+      "requires": {
+        "chameleon-bridge": "0.1.0",
+        "fetch-detector": "1.0.1",
+        "fetch-ie8": "1.5.0"
+      },
+      "dependencies": {
+        "chameleon-bridge": {
+          "version": "0.1.0",
+          "resolved": "http://registry.npm.taobao.org/chameleon-bridge/download/chameleon-bridge-0.1.0.tgz",
+          "integrity": "sha1-nAS4mMoJaaQt4fA++tf59wcntC4="
+        }
+      }
+    },
+    "chameleon-bridge": {
+      "version": "0.1.0",
+      "resolved": "http://registry.npm.taobao.org/chameleon-bridge/download/chameleon-bridge-0.1.0.tgz",
+      "integrity": "sha1-nAS4mMoJaaQt4fA++tf59wcntC4="
+    },
+    "chameleon-runtime": {
+      "version": "0.0.3",
+      "resolved": "http://registry.npm.taobao.org/chameleon-runtime/download/chameleon-runtime-0.0.3.tgz",
+      "integrity": "sha1-IS8/VPxqA1GX7uMDcWmMnmygXbI=",
+      "requires": {
+        "mobx": "3.6.1"
+      }
+    },
+    "chameleon-store": {
+      "version": "0.0.3",
+      "resolved": "http://registry.npm.taobao.org/chameleon-store/download/chameleon-store-0.0.3.tgz",
+      "integrity": "sha1-uVuckPbY2/xWnEfTPZ9avY75tis=",
+      "requires": {
+        "mobx": "3.6.1",
+        "vuex": "3.0.1"
+      }
+    },
+    "chameleon-ui-builtin": {
+      "version": "0.0.7",
+      "resolved": "http://registry.npm.taobao.org/chameleon-ui-builtin/download/chameleon-ui-builtin-0.0.7.tgz",
+      "integrity": "sha1-514zqXAQevSWxGy6Y3NKIQmCilg=",
+      "requires": {
+        "chameleon-scroll": "0.0.3"
+      },
+      "dependencies": {
+        "chameleon-scroll": {
+          "version": "0.0.3",
+          "resolved": "http://registry.npm.taobao.org/chameleon-scroll/download/chameleon-scroll-0.0.3.tgz",
+          "integrity": "sha1-SXkeP9DaZq4lrJQMP5C4A5FXqgM="
+        }
+      }
+    },
+    "classnames": {
+      "version": "2.2.6",
+      "resolved": "https://registry.npmjs.org/classnames/-/classnames-2.2.6.tgz",
+      "integrity": "sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q=="
+    },
+    "cml-ui": {
+      "version": "0.0.7",
+      "resolved": "http://registry.npm.taobao.org/cml-ui/download/cml-ui-0.0.7.tgz",
+      "integrity": "sha1-aNSECAPVGS53G0g8Lr8Sn1bWDB4=",
+      "requires": {
+        "classnames": "2.2.6"
+      }
+    },
+    "dayjs": {
+      "version": "1.8.0",
+      "resolved": "http://registry.npm.taobao.org/dayjs/download/dayjs-1.8.0.tgz",
+      "integrity": "sha1-UHljrDAj9LH585mieDVpRvxMmuk="
+    },
+    "fetch-detector": {
+      "version": "1.0.1",
+      "resolved": "https://registry.npmjs.org/fetch-detector/-/fetch-detector-1.0.1.tgz",
+      "integrity": "sha1-bLPq9zjCcnhi6GiA1hIUI+qkIIM="
+    },
+    "fetch-ie8": {
+      "version": "1.5.0",
+      "resolved": "https://registry.npmjs.org/fetch-ie8/-/fetch-ie8-1.5.0.tgz",
+      "integrity": "sha1-8RQcP5bLyJN6oxsPvBp3AiD7wVs="
+    },
+    "mobx": {
+      "version": "3.6.1",
+      "resolved": "https://registry.npmjs.org/mobx/-/mobx-3.6.1.tgz",
+      "integrity": "sha1-rmOo8A4UhadA0Pka4val9o4wO+o="
+    },
+    "vuex": {
+      "version": "3.0.1",
+      "resolved": "https://registry.npmjs.org/vuex/-/vuex-3.0.1.tgz",
+      "integrity": "sha512-wLoqz0B7DSZtgbWL1ShIBBCjv22GV5U+vcBFox658g6V0s4wZV9P4YjCNyoHSyIBpj1f29JBoNQIqD82cR4O3w=="
+    }
+  }
+}

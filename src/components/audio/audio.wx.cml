@@ -1,0 +1,48 @@
+<template>
+  <view>
+  </view>
+</template>
+
+<script>
+const audio = wx.createInnerAudioContext();
+class Audio implements AudioInterface {
+  props = {
+    src: {
+      type: String,
+      default: ''
+    }
+  }
+
+  watch = {
+    src:function(newV,oldV){
+      audio.src=newV;
+    }
+  }
+  mounted() {
+    audio.autoplay = true;
+    audio.src = this.src;
+  }
+}
+
+export default new Audio();
+</script>
+
+<style scoped>
+
+</style>
+
+<script cml-type="json">
+{
+  "base": {
+    "usingComponents": {}
+  },
+  "wx": {
+    "window": {
+      "backgroundTextStyle": "dark",
+      "navigationBarBackgroundColor": "#343434",
+      "navigationBarTitleText": "CNODE",
+      "navigationBarTextStyle": "white"
+    }
+  }
+}
+</script>

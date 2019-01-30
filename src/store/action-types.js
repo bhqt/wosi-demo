@@ -1,0 +1,16 @@
+export const GET_INFO = "GET_INFO";
+export const GET_USER_INFO = "GET_USER_INFO";
+export const GET_BOOK_INFO = "GET_BOOK_INFO";
+export const GET_TODAY_INFO = "GET_TODAY_INFO";
+export const GET_BOOKS = "GET_BOOKS";
+export const CHOOSE_BOOK = "CHOOSE_BOOK";
+export const CHANGE_PLAN = "CHANGE_PLAN";
+export const GET_REVIEW = "GET_REVIEW";
+export const GET_WORDS = "GET_WORDS";
+export const GET_SECTION = "GET_SECTION";
+export const SET_WORDS_LENGTH = "SET_WORDS_LENGTH";
+export const ADD_TODAY_COUNT = "ADD_TODAY_COUNT";
+export const ADD_USER_PASS = "ADD_USER_PASS";
+export const PUSH_WORDS_TO_SECTION = "PUSH_WORDS_TO_SECTION";
+export const PUSH_WORDS_TO_REVIEW = "PUSH_WORDS_TO_REVIEW";
+export const POST_RECORD = "POST_RECORD";

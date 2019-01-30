@@ -1,0 +1,18 @@
+.item {
+  width: 750cpx;
+  height: 100cpx;
+  border-bottom: 1px solid #e8e8e8;
+  padding: 0 25cpx;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.item-right {
+  flex-direction: row;
+  align-items: center;
+}
+
+.title {
+  font-size: 50cpx;
+}

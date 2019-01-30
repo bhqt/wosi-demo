@@ -1,0 +1,42 @@
+<template>
+  <view class="bg" ref="test">
+    <view class="inner" style="width:{{percent*6}}cpx">
+    </view>
+  </view>
+
+</template>
+
+<script>
+class Progress {
+  props = {
+    percent:{
+      type:Number,
+      default:0
+    }
+  }
+  data = {
+  }
+  computed = {
+  }
+  methods = {
+  }
+
+}
+export default new Progress();
+</script>
+
+<style scoped>
+  .bg{
+    width:600cpx;
+    background:#f5f5f5;
+  }
+  .inner{
+    background:#52c41a;
+    height:10cpx;
+    border-radius:10cpx;
+  }
+</style>
+<script cml-type="json">
+{
+}
+</script>

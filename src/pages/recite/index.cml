@@ -1,0 +1,95 @@
+<template>
+  <view style="height:{{viewportHeight}}cpx" >
+    <view class="top-view">
+      <text class="word">{{word.word}}</text>
+      <view class="ipa-view">
+        <text class="ipa" 
+        c-if="{{!!word.phonetic}}"
+        >[{{word.phonetic}}]</text>
+        <image 
+          src="{{soundImgSrc}}" 
+          c-bind:tap="pronounce"
+          style="width: 40cpx;height:40cpx;"
+        />
+      </view>
+      <audio
+      src="{{src}}"
+      >
+      </audio>
+    </view>
+    <view 
+      class="{{translationShow?'center-view-show':'center-view'}}"
+      c-bind:tap="showTranslation"
+    > 
+      <text c-if="{{translationShow}}">{{translation}}</text>
+      <block c-else="{{true}}">
+        <image 
+          src="{{eyeImgSrc}}" 
+          style="width: 40cpx;height:40cpx;"
+        />
+        <text class="tip">轻触查看释义</text>
+      </block>
+    </view>
+    <view class="bottom-view">
+      <button
+        text="太简单"
+        btn-style="background:#5cb4bd;width:600cpx;"
+        c-bind:onclick="handleEasy"
+        c-if="{{showEasyButton}}"
+      />  
+      <view class="info_view" c-else>
+        <text>这个单词背过</text>
+      </view>
+      <button
+        text="认识"
+        btn-style="background:#5cb4bd;width:600cpx;"
+        c-bind:onclick="handleCognizant"
+      />  
+      <button
+        text="不认识"
+        btn-style="background:#5cb4bd;width:600cpx;"
+        c-bind:onclick="handleIncognizant"
+      />  
+    </view>
+    <view class="progress-view">
+      <text class="progress">{{
+        todayInfo.count
+      }}/{{
+        todayInfo.wordsLength
+      }}</text>
+      <progress percent="{{percent}}"/>
+    </view>
+    <c-dialog 
+      show="{{end}}"
+      title="今日单词已背完"
+      mask="{{true}}"
+      icon-type="success"
+      content=""
+      icon-style="{{iconStyle}}"
+      confirm-text="打卡"
+      c-bind:confirm="handleRecord"
+    >
+    </c-dialog>
+    <c-loading loading="{{loading}}"></c-loading>
+  </view>
+</template>
+
+<script>
+  export default from './index.js';
+</script>
+<style scoped>
+  @import './index.css';
+</style>
+<script cml-type="json">
+{
+  "base": {
+    "usingComponents": {
+      "progress": "/components/progress/progress",
+      "record-circle": "/components/record-circle/record-circle",
+      "audio": "/components/audio/audio",
+      "c-loading": "cml-ui/components/c-loading/c-loading",
+      "c-dialog": "cml-ui/components/c-dialog/c-dialog"
+    }
+  }
+}
+</script>

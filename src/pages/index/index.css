@@ -1,0 +1,57 @@
+.wrapper {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+
+}
+
+.setting {
+	position: absolute;
+	right: 10cpx;
+	top: 10cpx;
+	z-index: 1;
+}
+
+.top-view {
+	flex: 1.5;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.center-view {
+	flex: 2;
+	align-items: center;
+	justify-content: center;
+}
+
+.bottom-view {
+	flex: 1;
+	align-items: center;
+	justify-content: space-between;
+	padding-bottom: 20cpx;
+}
+
+.title {
+	font-size: 70cpx;
+	color: #262626;
+}
+
+.task {
+	color: #777;
+	width: 750cpx;
+	padding-left: 375cpx;
+}
+
+.lexicon {
+	color: #777;
+	width: 750cpx;
+	text-align: center;
+}
+
+.progress {
+	font-size: 25cpx;
+	color: #777;
+	text-align: center;
+}

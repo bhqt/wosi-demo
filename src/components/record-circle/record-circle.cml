@@ -1,0 +1,64 @@
+<template>
+  <view class="circle" style="border-color:{{color}};">
+    <view class="circle-inner">
+      <text class="circle-text">第</text>
+      <text class="circle-text-big">{{days}}</text>
+      <text class="circle-text">天</text>
+    </view>
+  </view>
+</template>
+
+<script>
+const NORMAL_COLOR='#8c8c8c';
+const SUCCESS_COLOR='#5cc89c';
+class RecordCircle {
+  props={
+    days:{
+      type:Number,
+      default:0
+    },
+    status:{
+      type:String,
+      default:'normal'
+    }
+  }
+  computed={
+    color:function(){
+      if(this.status==='success'){
+        return SUCCESS_COLOR;
+      }
+      return NORMAL_COLOR;
+    }
+  }
+}
+export default new RecordCircle();
+</script>
+
+<style scoped>
+.circle {
+	width: 400cpx;
+	height: 400cpx;
+	border-width: 20cpx; 
+  border-style:solid;
+	border-radius: 300cpx;
+	justify-content: center;
+	align-items: center;
+}
+
+.circle-inner {
+	flex-direction: row;
+	align-items: flex-end;
+}
+
+.circle-text {
+	font-size: 30cpx;
+}
+
+.circle-text-big {
+	font-size: 110cpx;
+}
+</style>
+<script cml-type="json">
+{
+}
+</script>

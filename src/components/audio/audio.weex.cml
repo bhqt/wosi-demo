@@ -1,0 +1,38 @@
+<template>
+  <view c-show="{{false}}">
+    <origin-video class="video" src="{{src}}" auto-play="{{true}}"></origin-video>
+  </view>
+</template>
+
+<script>
+
+class Audio implements AudioInterface {
+  props = {
+    src: {
+      type: String,
+      default: '默认值'
+    }
+  }
+}
+
+export default new Audio();
+</script>
+
+<style scoped>
+  /**
+  * video必须有高度和宽度
+  **/
+  .video {
+    width: 10cpx;
+    height: 10cpx;
+    opacity:0;
+  }
+</style>
+
+<script cml-type="json">
+{
+  "base": {
+    "usingComponents": {}
+  }
+}
+</script>

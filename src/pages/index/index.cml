@@ -1,0 +1,65 @@
+<template>
+  <view style="height:{{viewportHeight}}cpx">
+    <image 
+      src="{{settingImgSrc}}" 
+      style="width:60cpx;height:60cpx;"
+      class="setting"
+      c-bind:tap="gotoSetting"
+    />
+    <view class="top-view">
+      <text class="title">{{title}}</text>
+      <text class="task">今日单词:{{todayInfo.count}}/{{todayInfo.wordsLength}}</text>
+    </view>
+    <view class="center-view">
+      <record-circle status="{{status}}" days="{{userInfo.days}}"/>
+    </view>
+    <view class="bottom-view">
+      <button
+      text="背单词"
+      btn-style='background:#5cb4bd;width:600cpx'
+      c-bind:onclick="judgeUserInfo"
+      >  
+      </button>
+      <view>
+        <text class="progress">{{bookInfo.bookName}} {{bookInfo.pass}}/{{bookInfo.bookLength}}</text>
+        <progress percent="{{bookInfo.pass/bookInfo.bookLength*100}}"/>
+      </view>
+      <c-dialog 
+        show="{{dialogShow}}"
+        type="confirm"
+        title="请选择单词书"
+        cancel-text="待会"
+        confirm-text="去选"
+        mask="{{true}}"
+        content="您尚未选择单词书，去选一本吧～"
+        c-bind:cancel="closeDialog"
+        c-bind:confirm="gotoSetting"
+        c-bind:close="closeDialog"
+        icon-style="{{iconStyle}}"
+      >
+      </c-dialog>
+    </view>
+
+    <c-loading loading="{{loading}}"></c-loading>
+  </view>
+
+</template>
+
+<script>
+ export default from './index.js';
+</script>
+<style scoped>
+  @import './index.css';
+</style>
+<script cml-type="json">
+{
+  "base": {
+    "usingComponents": {
+      "progress": "/components/progress/progress",
+      "record-circle": "/components/record-circle/record-circle",
+      "c-dialog": "cml-ui/components/c-dialog/c-dialog",
+      "c-loading": "cml-ui/components/c-loading/c-loading"
+    }
+  }
+}
+</script>

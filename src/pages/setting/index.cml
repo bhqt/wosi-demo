@@ -1,0 +1,87 @@
+<template>
+  <view style="height:{{viewportHeight}}cpx">
+    <view class="item">
+      <text>夜间模式(正在开发)</text>
+      <switch
+        checked="{{ switchValue }}"
+        c-bind:change="switchChange"
+      >
+      </switch>
+    </view>
+    <view class="item" c-bind:tap="selectBook">
+      <text>单词书</text>
+      <view class="item-right">
+        <text>{{ bookInfo.bookName }}</text>
+        <image 
+          src="{{rightImgSrc}}" 
+          style="width: 30cpx;height:30cpx;"
+        />
+      </view>
+    </view>
+    <view class="item" c-bind:tap="selectPlan">
+      <text>每日新词数</text>
+      <view class="item-right">
+        <text>{{ userInfo.plan }}</text>
+        <image 
+          src="{{ rightImgSrc }}" 
+          style="width: 30cpx;height:30cpx;"
+        />
+      </view>
+    </view>
+      <c-picker-panel 
+        show="{{bookPickerShow}}" 
+        height="{{500}}" 
+        header-height="{{100}}"
+        c-bind:cancel="bookCancel"
+        c-bind:confirm="bookConfirm"
+      >
+        <c-picker-item 
+          text-align="center" 
+          height="{{400}}" 
+          data="{{bookSelects}}" 
+          default-index="{{bookDefaultIndex}}"
+          c-bind:selectchange="planSelectchange"
+        >
+        </c-picker-item>
+      </c-picker-panel>
+
+      <c-picker-panel 
+        show="{{planPickerShow}}" 
+        height="{{500}}" 
+        header-height="{{100}}"
+        c-bind:cancel="planCancel"
+        c-bind:confirm="planConfirm"
+      >
+        <c-picker-item 
+          text-align="center" 
+          height="{{400}}" 
+          data="{{planSelects}}" 
+          default-index="{{planDefaultIndex}}"
+          c-bind:selectchange="planSelectchange"
+        >
+        </c-picker-item>
+      </c-picker-panel>
+      <c-loading loading="{{loading}}">
+      </c-loading>
+  </view>
+
+
+</template>
+
+<script>
+export default from './index.js';
+</script>
+<style scoped>
+  @import './index.css';
+</style>
+<script cml-type="json">
+{
+  "base": {
+    "usingComponents": {
+      "c-picker-panel": "cml-ui/components/c-picker-panel/c-picker-panel",
+      "c-picker-item": "cml-ui/components/c-picker-item/c-picker-item",
+      "c-loading": "cml-ui/components/c-loading/c-loading"
+    }
+  }
+}
+</script>

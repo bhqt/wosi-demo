@@ -1,0 +1,70 @@
+.wrapper {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+.top-view {
+	flex: 1;
+	justify-content: center;
+	align-items: center;
+}
+
+.ipa-view {
+	flex-direction: row;
+}
+
+.word {
+	font-size: 60cpx;
+}
+
+.ipa {
+	color: #777;
+}
+
+.tip {
+	color: #777;
+}
+
+.center-view {
+	flex: 4;
+	align-items: center;
+	justify-content: center;
+	background: #f2f4f5;
+}
+
+.center-view-show {
+	flex: 4;
+	align-items: flex-start;
+	justify-content: flex-start;
+	padding: 40cpx;
+	background: #f2f4f5;
+}
+
+.bottom-view {
+	flex: 3;
+	align-items: center;
+	justify-content: center;
+}
+
+.bottom-view button {
+	margin-top: 40cpx;
+}
+
+.info_view {
+	margin-top: 40cpx;
+	height: 88cpx;
+	justify-content: center;
+}
+
+.progress-view {
+	align-items: center;
+	padding: 20cpx 0;
+}
+
+.progress {
+	color: #777;
+	font-size: 25cpx;
+}

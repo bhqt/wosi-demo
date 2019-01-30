@@ -1,0 +1,49 @@
+<template>
+  <view>
+    <origin-audio src="{{src}}"></origin-audio>
+  </view>
+</template>
+
+<script>
+
+class Audio implements AudioInterface {
+  props = {
+    src: {
+      type: String,
+      default: ''
+    }
+  }
+  data={
+    oldSrc:''
+  }
+  /**
+  * 由于浏览器限制，某些浏览器无法自动播放音视频
+  * 绑定全局事件，监听click事件
+  * 当src改变时触发播放
+  **/
+  beforeCreate(){
+    document.addEventListener('click', (e)=>{
+      if(this.oldSrc!==this.src){
+        document.querySelector('audio').play();
+        this.oldSrc=this.src;
+      }
+    })
+  }
+}
+
+export default new Audio();
+</script>
+
+<style scoped>
+</style>
+
+<script cml-type="json">
+{
+  "base": {
+    "usingComponents": {}
+  }
+}
+</script>
+
+
+
