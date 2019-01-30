@@ -1,68 +1,80 @@
 <template>
-  <view style="height:{{viewportHeight}}cpx">
-    <view class="item">
-      <text>夜间模式(正在开发)</text>
-      <switch
-        checked="{{ switchValue }}"
-        c-bind:change="switchChange"
-      >
-      </switch>
-    </view>
-    <view class="item" c-bind:tap="selectBook">
-      <text>单词书</text>
-      <view class="item-right">
-        <text>{{ bookInfo.bookName }}</text>
-        <image 
-          src="{{rightImgSrc}}" 
-          style="width: 30cpx;height:30cpx;"
-        />
-      </view>
-    </view>
-    <view class="item" c-bind:tap="selectPlan">
-      <text>每日新词数</text>
-      <view class="item-right">
-        <text>{{ userInfo.plan }}</text>
-        <image 
-          src="{{ rightImgSrc }}" 
-          style="width: 30cpx;height:30cpx;"
-        />
-      </view>
-    </view>
-      <c-picker-panel 
-        show="{{bookPickerShow}}" 
-        height="{{500}}" 
-        header-height="{{100}}"
-        c-bind:cancel="bookCancel"
-        c-bind:confirm="bookConfirm"
-      >
-        <c-picker-item 
-          text-align="center" 
-          height="{{400}}" 
-          data="{{bookSelects}}" 
-          default-index="{{bookDefaultIndex}}"
-          c-bind:selectchange="planSelectchange"
-        >
-        </c-picker-item>
-      </c-picker-panel>
+  <view class="wrapper">
+		<view class="item">
+			<view 
+				class="return"
+				c-bind:tap="pageReturn"
+			>
+				<image 
+					src="{{leftImgSrc}}" 
+					style="width: 50cpx;height:50cpx;"
+				/>
+				<text>返回</text>
+			</view>
+		</view>
+		<view class="item">
+			<text>夜间模式(正在开发)</text>
+			<switch
+				checked="{{ switchValue }}"
+				c-bind:change="switchChange"
+			>
+			</switch>
+		</view>
+		<view class="item" c-bind:tap="selectBook">
+			<text>单词书</text>
+			<view class="item-right">
+				<text>{{ bookInfo.bookName }}</text>
+				<image 
+					src="{{rightImgSrc}}" 
+					style="width: 30cpx;height:30cpx;"
+				/>
+			</view>
+		</view>
+		<view class="item" c-bind:tap="selectPlan">
+			<text>每日新词数</text>
+			<view class="item-right">
+				<text>{{ userInfo.plan }}</text>
+				<image 
+					src="{{ rightImgSrc }}" 
+					style="width: 30cpx;height:30cpx;"
+				/>
+			</view>
+		</view>
+		<c-picker-panel 
+			show="{{bookPickerShow}}" 
+			height="{{500}}" 
+			header-height="{{100}}"
+			c-bind:cancel="bookCancel"
+			c-bind:confirm="bookConfirm"
+		>
+			<c-picker-item 
+				text-align="center" 
+				height="{{400}}" 
+				data="{{bookSelects}}" 
+				default-index="{{bookDefaultIndex}}"
+				c-bind:selectchange="planSelectchange"
+			>
+			</c-picker-item>
+		</c-picker-panel>
 
-      <c-picker-panel 
-        show="{{planPickerShow}}" 
-        height="{{500}}" 
-        header-height="{{100}}"
-        c-bind:cancel="planCancel"
-        c-bind:confirm="planConfirm"
-      >
-        <c-picker-item 
-          text-align="center" 
-          height="{{400}}" 
-          data="{{planSelects}}" 
-          default-index="{{planDefaultIndex}}"
-          c-bind:selectchange="planSelectchange"
-        >
-        </c-picker-item>
-      </c-picker-panel>
-      <c-loading loading="{{loading}}">
-      </c-loading>
+		<c-picker-panel 
+			show="{{planPickerShow}}" 
+			height="{{500}}" 
+			header-height="{{100}}"
+			c-bind:cancel="planCancel"
+			c-bind:confirm="planConfirm"
+		>
+			<c-picker-item 
+				text-align="center" 
+				height="{{400}}" 
+				data="{{planSelects}}" 
+				default-index="{{planDefaultIndex}}"
+				c-bind:selectchange="planSelectchange"
+			>
+			</c-picker-item>
+		</c-picker-panel>
+		<c-loading loading="{{loading}}">
+		</c-loading>
   </view>
 
 
@@ -74,6 +86,7 @@ import store from "../../store";
 import { CHOOSE_BOOK, CHANGE_PLAN, GET_BOOKS } from "../../store/action-types";
 class Index {
 	data = {
+		leftImgSrc: require("../../assets/images/left.png"),
 		rightImgSrc: require("../../assets/images/right.png"),
 		bookSelects: [""],
 		planSelects: [
@@ -93,18 +106,11 @@ class Index {
 		loading: false,
 		bookIndex: 0,
 		planIndex: 0,
-		viewportHeight: 0,
 		switchValue: false
 	};
 
 	beforeCreate() {
 		cml.setTitle("我思背单词");
-	}
-
-	created() {
-		cml.getSystemInfo().then(info => {
-			this.viewportHeight = info.viewportHeight;
-		});
 	}
 
 	computed = store.mapState({
@@ -163,6 +169,9 @@ class Index {
 		},
 		planSelectchange(e) {
 			this.planIndex = e.detail.index;
+		},
+		pageReturn(){
+			cml.navigateBack();
 		}
 	};
 }

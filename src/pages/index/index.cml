@@ -1,5 +1,5 @@
 <template>
-  <view style="height:{{viewportHeight}}cpx">
+  <view class="wrapper">
     <image 
       src="{{settingImgSrc}}" 
       style="width:60cpx;height:60cpx;"
@@ -57,8 +57,7 @@ class Index {
 			width: "60cpx",
 			height: "60cpx"
 		},
-		loading: false,
-		viewportHeight: 0
+		loading: false
 	};
 
 	computed = store.mapState({
@@ -73,7 +72,7 @@ class Index {
 			const { wordsLength, count } = todayInfo;
 			if (count === 0) {
 				return "今天还没有背单词";
-			} else if (count <= wordsLength) {
+			} else if (count < wordsLength) {
 				return "今天单词还没有背完";
 			} else {
 				return "今天单词已背完";
@@ -85,12 +84,6 @@ class Index {
 		cml.setTitle("我思背单词");
 	}
 
-	created() {
-		cml.getSystemInfo().then(info => {
-			this.viewportHeight = info.viewportHeight;
-		});
-	}
-
 	async mounted() {
 		this.loading = true;
 		await store.dispatch(GET_INFO);
@@ -98,9 +91,16 @@ class Index {
 	}
 	methods = {
 		judgeUserInfo() {
-			this.userInfo.status === "new"
-				? (this.dialogShow = true)
-				: this.gotoRecite();
+			if(this.userInfo.status==="new"){
+				this.dialogShow = true;
+			}else if(this.userInfo.status==="success"){
+				cml.showToast({
+					message: "今天单词已经背完了～",
+					duration: 2000
+				})
+			}else{
+				this.gotoRecite();
+			}
 		},
 		/**
 		 * 单词熟练度规则（初版，待改进）

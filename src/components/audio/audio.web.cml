@@ -24,7 +24,8 @@ class Audio implements AudioInterface {
   beforeCreate(){
     document.addEventListener('click', (e)=>{
       if(this.oldSrc!==this.src){
-        document.querySelector('audio').play();
+        const audioEle=document.querySelector('audio')
+        !!audioEle&&audioEle.play();
         this.oldSrc=this.src;
       }
     })

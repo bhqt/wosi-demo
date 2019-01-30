@@ -1,3 +1,23 @@
+.wrapper {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+.nav {
+	width: 750cpx;
+	height: 70cpx;
+	padding: 0 25cpx;
+	justify-content: flex-end;
+}
+
+.return {
+	flex-direction: row;
+	align-items: center;
+}
+
 .top-view {
 	flex: 1;
 	justify-content: center;

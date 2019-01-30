@@ -1,5 +1,17 @@
 <template>
-  <view style="height:{{viewportHeight}}cpx" >
+  <view class="wrapper">
+		<view class="nav">
+			<view 
+				class="return"
+				c-bind:tap="pageReturn"
+			>
+				<image 
+					src="{{leftImgSrc}}" 
+					style="width: 50cpx;height:50cpx;"
+				/>
+				<text>返回</text>
+			</view>
+		</view>
     <view class="top-view">
       <text class="word">{{word.word}}</text>
       <view class="ipa-view">
@@ -90,6 +102,7 @@ const soundBaseUrl = "https://wosiwords.oss-cn-hangzhou.aliyuncs.com/mp3";
 class Index {
 	data = {
 		src: "",
+		leftImgSrc: require("../../assets/images/left.png"),
 		soundImgSrc: require("../../assets/images/sound.png"),
 		eyeImgSrc: require("../../assets/images/eye.png"),
 		translationShow: false,
@@ -129,11 +142,6 @@ class Index {
 	};
 	beforeCreate() {
 		cml.setTitle("我思背单词");
-	}
-	created() {
-		cml.getSystemInfo().then(info => {
-			this.viewportHeight = info.viewportHeight;
-		});
 	}
 
 	async mounted() {
@@ -267,6 +275,9 @@ class Index {
 			cml.navigateTo({
 				path: "/pages/index/index"
 			});
+		},
+		pageReturn(){
+			cml.navigateBack();
 		}
 	};
 }

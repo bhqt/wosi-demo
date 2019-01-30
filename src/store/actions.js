@@ -209,7 +209,8 @@ export default {
 	async [actionTypes.ADD_USER_PASS]({ commit, state }) {
 		const bookInfo = await cml.getStorage("bookInfo");
 		let pass = state.bookInfo.pass;
-		commit(mutationTypes.UPDATE_USERINFO, { pass: ++pass });
+		commit(mutationTypes.UPDATE_BOOKINFO, { pass: ++pass });
+
 		await cml.setStorage("bookInfo", { ...bookInfo, pass });
 	},
 	/**
@@ -248,6 +249,7 @@ export default {
 		} else {
 			await dispatch(actionTypes.ADD_USER_PASS);
 		}
+
 		if (words.length > 0) {
 			word = { ...words.shift() };
 			section.unshift(word);
