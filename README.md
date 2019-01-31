@@ -26,6 +26,14 @@
 
 注意：由于是 mock 的接口，微信小程序需点击开发者工具右上角`详情`，再勾选`不校验合法域名、web-view（业务域名）、TLS 版本以及 HTTPS 证书`选项，保证 mock 数据正常
 
+### 使用体验
+
+[chameleon 使用体验](https://github.com/Bowen7/Blog/issues/2)
+
+### 多态协议
+
+[chameleon 之强大的多态协议](https://github.com/Bowen7/Blog/issues/3)
+
 ### 页面截图
 
 下面是运行在 h5、微信小程序、weex 的截图：

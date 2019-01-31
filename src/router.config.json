@@ -4,19 +4,16 @@
   "routes": [{
       "url": "/cml/h5/index",
       "path": "/pages/index/index",
-      "name": "首页",
       "mock": "index.js"
     },
     {
       "url": "/cml/h5/recite",
       "path": "/pages/recite/index",
-      "name": "单词",
       "mock": "index.js"
     },
     {
       "url": "/cml/h5/setting",
       "path": "/pages/setting/index",
-      "name": "设置",
       "mock": "index.js"
     }
   ]
