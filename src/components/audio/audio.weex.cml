@@ -1,6 +1,10 @@
 <template>
-  <view c-show="{{false}}">
-    <origin-video class="video" src="{{src}}" auto-play="{{true}}"></origin-video>
+  <view>
+    <origin-video 
+      class="video" 
+      src="{{src}}" 
+      auto-play="{{true}}">
+    </origin-video>
   </view>
 </template>
 
