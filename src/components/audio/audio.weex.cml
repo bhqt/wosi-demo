@@ -14,7 +14,7 @@ class Audio implements AudioInterface {
   props = {
     src: {
       type: String,
-      default: '默认值'
+      default: ''
     }
   }
 }
